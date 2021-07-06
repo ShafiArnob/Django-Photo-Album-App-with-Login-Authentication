@@ -22,6 +22,8 @@
   </head>
   <body class="m-5">
     <div class="container">
+    
+    {% comment %} Categories {% endcomment %}
       <div class="row">
         <div class="col-md-3">
           <div class="card">
@@ -30,9 +32,13 @@
               Categories
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">All</li>
+              <a href="{% url 'gallery' %}"><li class="list-group-item">All</li></a>
               {% for category in categories %}
-                <li class="list-group-item">{{category.name}}</li>
+                <li class="list-group-item">
+                  <a href="{% url 'gallery' %}?category={{category.name}}">
+                    {{category.name}}  
+                  </a>
+                </li>
               {% endfor %}
 
 
@@ -45,6 +51,7 @@
           </div>
         </div>
 
+      {% comment %} Gallery {% endcomment %}
         <div class="col-md-9">
           <div class="row">
 
